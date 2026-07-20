@@ -1,0 +1,38 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.deso.org/deso-identity/identity/concepts
+docs: https://docs.deso.org/deso-identity/identity
+summary:
+  model: blockchain-keypair
+  types: [derived-keys, transaction-signing]
+  api_key_in: []
+  oauth2_flows: []
+  notes: >-
+    DeSo does not use API keys, OAuth, or bearer tokens for its backend API.
+    Read/data endpoints are public and permissionless. Write operations are
+    two-step: a node constructs an unsigned transaction, the client signs it with
+    a user's (or derived) key via the DeSo Identity Service, and submits the
+    signed transaction back to the node.
+schemes:
+- name: DeSo Identity Service
+  type: identity-service
+  contexts: [iframe, window]
+  description: >-
+    Browser-embedded identity provider. The iframe context handles background
+    requests (transaction signing, message decryption); the window context
+    handles interactive flows (log in, sign up, account management). Communicates
+    via window.postMessage message events.
+  docs: https://docs.deso.org/deso-identity/identity
+- name: Derived Keys
+  type: derived-key
+  description: >-
+    Scoped, revocable keys authorized by a master key with transaction spending
+    limits (per-transaction-type and global $DESO caps). Used for server-side and
+    delegated signing without exposing the master seed.
+  docs: https://docs.deso.org/deso-backend/construct-transactions/derived-keys-transaction-api
+- name: Transaction Spending Limits
+  type: authorization-policy
+  description: >-
+    Fine-grained authorization attached to derived keys constraining which
+    transaction types (and how much $DESO) a key may spend.
+  docs: https://docs.deso.org/deso-backend/api/transaction-spending-limits-endpoints
