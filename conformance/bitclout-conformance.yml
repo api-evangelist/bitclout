@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/deso-protocol/rosetta-deso
+standards:
+- id: rosetta-api
+  conforms: true
+  evidence: >-
+    deso-protocol/rosetta-deso is an implementation of the Coinbase Rosetta API
+    specification for DeSo, used for exchange and custody integration.
+  ref: https://github.com/deso-protocol/rosetta-deso
+- id: oauth2
+  conforms: false
+  evidence: No OAuth2 security scheme; auth is blockchain keypair / derived-key signing.
+- id: oidc
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: 'Errors returned as a plain JSON error-string envelope, not application/problem+json.'
+- id: rfc8594-sunset
+  conforms: false
+  evidence: No Sunset/Deprecation header contract documented.
+- id: json-api
+  conforms: false
+notes: >-
+  No published third-party compliance certifications (SOC 2 / ISO 27001 / PCI /
+  HIPAA / FedRAMP) found for the DeSo protocol or its reference node — this is an
+  open, decentralized blockchain rather than a hosted SaaS. No Compliance pointer
+  emitted.

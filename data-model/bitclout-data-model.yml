@@ -1,0 +1,86 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.deso.org/deso-backend/api
+docs: https://docs.deso.org/deso-backend/api
+note: >-
+  Derived from the DeSo backend Data API object reference (ProfileEntryResponse,
+  PostEntryResponse, and related response objects). DeSo publishes no OpenAPI, so
+  entities and relationships are captured from the documented JSON response
+  shapes rather than a machine spec.
+identity_key: PublicKeyBase58Check
+entities:
+- name: Profile
+  response_object: ProfileEntryResponse
+  key: PublicKeyBase58Check
+  fields: [Username, Description, IsVerified, IsReserved, CoinEntry, CoinPriceDeSoNanos]
+- name: User
+  response_object: User
+  key: PublicKeyBase58Check
+  note: Wallet/account view over a public key (balance, profile, whether following, etc.).
+- name: Post
+  response_object: PostEntryResponse
+  key: PostHashHex
+  fields: [Body, PosterPublicKeyBase58Check, ParentStakeID, RepostedPostEntryResponse, ImageURLs, VideoURLs]
+- name: CreatorCoin
+  response_object: CoinEntry
+  key: PublicKeyBase58Check (creator)
+  fields: [CreatorBasisPoints, DeSoLockedNanos, CoinsInCirculationNanos]
+- name: DeSoToken
+  response_object: DAOCoinEntry
+  key: PublicKeyBase58Check (issuer)
+  note: On-chain fungible token (formerly "DAO coin").
+- name: NFT
+  response_object: NFTEntryResponse
+  key: PostHashHex + SerialNumber
+- name: Message
+  response_object: MessageEntryResponse
+  key: (Sender, Recipient) PublicKeyBase58Check
+- name: Association
+  response_object: AssociationEntryResponse
+  key: AssociationID
+  note: Generic on-chain attestation between users or on posts (e.g. reactions, tags).
+- name: DerivedKey
+  response_object: DerivedKeyEntryResponse
+  key: DerivedPublicKeyBase58Check
+relationships:
+- from: Post
+  to: Profile
+  type: belongs_to
+  via: PosterPublicKeyBase58Check
+- from: Post
+  to: Post
+  type: belongs_to
+  via: ParentStakeID
+  note: Comments/replies reference a parent post.
+- from: Post
+  to: Post
+  type: has_one
+  via: RepostedPostEntryResponse
+- from: Profile
+  to: CreatorCoin
+  type: has_one
+  via: CoinEntry
+- from: Profile
+  to: Post
+  type: has_many
+  via: Posts
+- from: NFT
+  to: Post
+  type: belongs_to
+  via: PostHashHex
+- from: NFT
+  to: Profile
+  type: belongs_to
+  via: OwnerPublicKeyBase58Check
+- from: Message
+  to: Profile
+  type: belongs_to
+  via: SenderPublicKeyBase58Check
+- from: DerivedKey
+  to: Profile
+  type: belongs_to
+  via: OwnerPublicKeyBase58Check
+- from: Association
+  to: Profile
+  type: belongs_to
+  via: TransactorPublicKeyBase58Check

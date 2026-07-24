@@ -1,0 +1,50 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.deso.org/deso-backend/api
+docs: https://docs.deso.org/deso-backend/api
+authentication:
+  style: identity-service + derived-key transaction signing (no API keys / OAuth)
+  ref: authentication/bitclout-authentication.yml
+transport:
+  protocol: JSON over HTTP
+  base_url: https://node.deso.org/api/v0
+  method_style: >-
+    Most endpoints are POST with a JSON request body, including read/data
+    endpoints; a few utility endpoints are GET (e.g. get-exchange-rate).
+  identifiers:
+    public_key: PublicKeyBase58Check
+    post: PostHashHex
+    transaction: TransactionHex / TxnHashHex
+pagination:
+  style: cursor
+  params:
+    LastPostHashHex: Cursor — hash of the last item from the previous page.
+    NumToFetch: Page size.
+  notes: >-
+    Read endpoints (posts, notifications, followers) page with a "last seen"
+    hash/index cursor plus a NumToFetch count rather than offset/limit.
+idempotency:
+  supported: false
+  notes: >-
+    No documented Idempotency-Key header. Write operations are inherently
+    replay-protected at the chain level (each signed transaction has a unique
+    hash and nonce), but the HTTP API does not expose an idempotency-key contract.
+versioning:
+  scheme: uri-path
+  current: v0
+  ref: lifecycle/bitclout-lifecycle.yml
+error_envelope:
+  format: json
+  shape: >-
+    Errors return an HTTP 4xx/5xx with a JSON body containing an "error" string
+    field describing the failure. Not RFC 9457 problem+json.
+rate_limiting:
+  documented: false
+  notes: >-
+    Public nodes may apply their own rate limits; the protocol/API does not
+    document a standard rate-limit header contract. Operators can run their own
+    node to remove shared limits.
+related:
+  authentication: authentication/bitclout-authentication.yml
+  lifecycle: lifecycle/bitclout-lifecycle.yml
+  data_model: data-model/bitclout-data-model.yml

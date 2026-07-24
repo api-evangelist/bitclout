@@ -1,0 +1,32 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.deso.org/
+versioning:
+  scheme: uri-path
+  current: v0
+  docs: https://docs.deso.org/deso-backend/api
+  notes: >-
+    The backend HTTP API is served under the /api/v0 path. DeSo is an open-source
+    node; API evolution tracks node releases rather than a dated public API
+    versioning policy.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: >-
+    No published deprecation policy or RFC 8594 Sunset/Deprecation header
+    contract. Some response fields are marked "Deprecated - ignore" inline in the
+    API docs (e.g. ProfileEntryResponse.IsHidden).
+sla:
+  url: null
+  uptime_target: null
+  notes: >-
+    Decentralized network of independent nodes; no centralized SLA. Reliability
+    depends on the node operator (public reference node is node.deso.org).
+status_page: null
+roadmap:
+  url: https://docs.deso.org/deso-roadmap
+node_releases:
+  url: https://github.com/deso-protocol/core/releases
+improvement_proposals:
+  url: https://github.com/deso-protocol/dips
+deprecated_operations: []

@@ -1,22 +1,116 @@
 aid: bitclout
 name: BitClout
-description: BitClout is a company surfaced as a portfolio company of a16z and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  BitClout is the original social-token network that launched the DeSo
+  (Decentralized Social) blockchain, an open, layer-1 chain purpose-built for
+  storing social data — profiles, posts, follows, creator coins, NFTs, and
+  messages — fully on-chain. Backed by a16z and other top venture firms, the
+  project rebranded to DeSo and exposes everything through an API-first,
+  permissionless developer surface: a JSON HTTP backend API served by every
+  node (transaction construction plus read/data endpoints), the DeSo Identity
+  Service for key management and transaction signing, a first-party
+  TypeScript/JavaScript SDK (deso-protocol), a Rosetta API implementation for
+  exchange integration, an open-source core node, and a hosted MCP server for
+  agent-based development. Openfund, a fully on-chain order-book DEX, is the
+  flagship application built on the stack.
 url: https://raw.githubusercontent.com/api-evangelist/bitclout/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://avatars.githubusercontent.com/u/72720753?v=4
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - a16z
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-rebrand: DeSo (Decentralized Social)
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-apis: []
+- Blockchain
+- Web3
+- Decentralized Social
+- Social
+- Cryptocurrency
+- NFT
+- Creator Economy
+- Identity
+- Developer Tools
+apis:
+- name: DeSo Backend API
+  description: >-
+    The HTTP API served by every DeSo node. It exposes transaction-construction
+    endpoints (social, financial, NFT, DAO/token, associations, derived keys)
+    and read/data endpoints (users, posts, profiles, NFTs, notifications,
+    messages) over JSON. The public reference node is node.deso.org; the API is
+    versioned under the /api/v0 path.
+  humanURL: https://docs.deso.org/deso-backend/api
+  baseURL: https://node.deso.org/api/v0
+  tags:
+  - Blockchain
+  - Social
+  - Web3
+  properties:
+  - type: Documentation
+    url: https://docs.deso.org/deso-backend/api
+  - type: APIReference
+    url: https://docs.deso.org/deso-backend/construct-transactions
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DomainSecurity
+  url: security/bitclout-domain-security.yml
+- type: DeveloperPortal
+  url: https://docs.deso.org/
+- type: Documentation
+  url: https://docs.deso.org/
+- type: APIReference
+  url: https://docs.deso.org/deso-backend/api
+- type: GettingStarted
+  url: https://docs.deso.org/deso-tutorial-build-apps
+- type: GitHubOrganization
+  url: https://github.com/deso-protocol
+- type: Roadmap
+  url: https://docs.deso.org/deso-roadmap
+- type: Blog
+  url: https://deso.org
+- type: SignUp
+  url: https://identity.deso.org/
+- type: LLMsTxt
+  url: llms/bitclout-llms.txt
+- type: Packages
+  url: packages/bitclout-packages.yml
+- type: SDKs
+  url: packages/bitclout-packages.yml
+- type: MCPServer
+  url: mcp/bitclout-mcp.yml
+- type: Authentication
+  url: authentication/bitclout-authentication.yml
+- type: Conventions
+  url: conventions/bitclout-conventions.yml
+- type: Lifecycle
+  url: lifecycle/bitclout-lifecycle.yml
+- type: Conformance
+  url: conformance/bitclout-conformance.yml
+- type: DataModel
+  url: data-model/bitclout-data-model.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

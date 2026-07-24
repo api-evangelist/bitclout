@@ -1,0 +1,44 @@
+generated: '2026-07-18'
+method: searched
+status: published
+source: https://github.com/deso-protocol/deso-mcp
+server:
+  name: deso-mcp
+  description: >-
+    Official DeSo Protocol Model Context Protocol (MCP) server for DeSo blockchain
+    development. Provides API documentation exploration, SDK guidance, code
+    generation, architecture explanation, repository search, debugging, and a
+    GraphQL query helper. Self-hosted; ships an HTTP transport and a Dockerfile.
+  repository: https://github.com/deso-protocol/deso-mcp
+  version: '3.0'
+  transport: http
+  local_url: http://localhost:3000
+  hosted_url: null
+  install: |
+    git clone https://github.com/deso-protocol/deso-mcp
+    npm install
+    npm start
+tools:
+- name: deso_api_explorer
+  description: DeSo backend API documentation and examples.
+- name: deso_js_guide
+  description: deso-protocol SDK setup and usage guidance.
+- name: generate_deso_code
+  description: Code generation for common DeSo operations.
+- name: explain_deso_architecture
+  description: DeSo node/architecture pattern explanations.
+- name: repository_search
+  description: Search across DeSo repository documentation.
+- name: read_repository_document
+  description: Read a specific DeSo documentation file.
+- name: deso_debugging_guide
+  description: Fixes for common DeSo integration issues.
+- name: deso_implementation_patterns
+  description: Production app best practices.
+- name: deso_ui_components
+  description: DeSo UI component library guidance.
+- name: deso_graphql_helper
+  description: GraphQL query builder for DeSo data.
+notes: >-
+  Published first-party MCP server. Transport is HTTP (JSON-RPC over POST); no
+  DeSo-Foundation-hosted remote endpoint is advertised, so operators self-host.

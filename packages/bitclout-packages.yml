@@ -1,0 +1,49 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/deso-protocol
+packages:
+- language: javascript
+  registry: npm
+  name: deso-protocol
+  url: https://www.npmjs.com/package/deso-protocol
+  install: npm install deso-protocol
+  version: 3.4.1
+  license: MIT
+  repository: https://github.com/deso-protocol/deso-js
+  description: Client-side TypeScript/JavaScript SDK for building web3 applications on the DeSo blockchain.
+  official: true
+- language: go
+  registry: github
+  name: rosetta-deso
+  url: https://github.com/deso-protocol/rosetta-deso
+  install: go get github.com/deso-protocol/rosetta-deso
+  repository: https://github.com/deso-protocol/rosetta-deso
+  description: Rosetta API (Coinbase) implementation for DeSo, used for exchange/custody integration.
+  official: true
+- language: go
+  registry: github
+  name: core
+  url: https://github.com/deso-protocol/core
+  install: go get github.com/deso-protocol/core
+  repository: https://github.com/deso-protocol/core
+  description: DeSo core node — consensus and blockchain library embedded by the backend.
+  official: true
+- language: typescript
+  registry: github
+  name: deso-ui
+  url: https://github.com/deso-protocol/deso-ui
+  repository: https://github.com/deso-protocol/deso-ui
+  description: DeSo UI component library for building social front-ends.
+  official: true
+- language: python
+  registry: pypi
+  name: deso
+  url: https://pypi.org/project/deso/
+  install: pip install deso
+  version: 2.3.6
+  description: Community Python module for the DeSo blockchain (author ItsAditya); not maintained by the DeSo Foundation.
+  official: false
+notes: >-
+  The DeSo Foundation documents a Python SDK in its Openfund guide, but the primary
+  first-party client library is the TypeScript/JavaScript `deso-protocol` package.
+  The PyPI `deso` package is community-maintained.
