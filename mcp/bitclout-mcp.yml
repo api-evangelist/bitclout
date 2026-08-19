@@ -4,20 +4,21 @@ status: published
 source: https://github.com/deso-protocol/deso-mcp
 server:
   name: deso-mcp
-  description: >-
-    Official DeSo Protocol Model Context Protocol (MCP) server for DeSo blockchain
-    development. Provides API documentation exploration, SDK guidance, code
-    generation, architecture explanation, repository search, debugging, and a
-    GraphQL query helper. Self-hosted; ships an HTTP transport and a Dockerfile.
+  description: Official DeSo Protocol Model Context Protocol (MCP) server for DeSo blockchain development.
+    Provides API documentation exploration, SDK guidance, code generation, architecture explanation, repository
+    search, debugging, and a GraphQL query helper. Self-hosted; ships an HTTP transport and a Dockerfile.
   repository: https://github.com/deso-protocol/deso-mcp
   version: '3.0'
   transport: http
   local_url: http://localhost:3000
   hosted_url: null
-  install: |
-    git clone https://github.com/deso-protocol/deso-mcp
+  install: 'git clone https://github.com/deso-protocol/deso-mcp
+
     npm install
+
     npm start
+
+    '
 tools:
 - name: deso_api_explorer
   description: DeSo backend API documentation and examples.
@@ -39,6 +40,14 @@ tools:
   description: DeSo UI component library guidance.
 - name: deso_graphql_helper
   description: GraphQL query builder for DeSo data.
-notes: >-
-  Published first-party MCP server. Transport is HTTP (JSON-RPC over POST); no
-  DeSo-Foundation-hosted remote endpoint is advertised, so operators self-host.
+notes: Published first-party MCP server. Transport is HTTP (JSON-RPC over POST); no DeSo-Foundation-hosted
+  remote endpoint is advertised, so operators self-host.
+deployment:
+  mode: none
+  endpoint: http://localhost:3000
+  verified: probed
+  probe: dead
+  note: the endpoint this manifest claimed did not answer; recorded as none rather than deleted so the
+    claim stays auditable
+  checked: '2026-08-12'
+  source: catalog MCP census
